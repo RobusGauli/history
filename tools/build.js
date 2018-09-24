@@ -23,18 +23,18 @@ exec('babel modules -d es --ignore __tests__', {
 
 console.log('\nBuilding history.js ...')
 
-exec('webpack modules/index.js umd/history.js', {
+exec('webpack modules/index.js umd/react-history.js', {
   NODE_ENV: 'production'
 })
 
 console.log('\nBuilding history.min.js ...')
 
-exec('webpack -p modules/index.js umd/history.min.js', {
+exec('webpack -p modules/index.js umd/react-history.min.js', {
   NODE_ENV: 'production'
 })
 
 const size = gzipSize.sync(
-  fs.readFileSync('umd/history.min.js')
+  fs.readFileSync('umd/react-history.min.js')
 )
 
 console.log('\ngzipped, the UMD build is %s', prettyBytes(size))
